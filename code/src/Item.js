@@ -30,7 +30,7 @@ var Item = /** @class */ (function () {
         }
     };
     Item.prototype.toString = function () {
-        return this.getId() + ": " + this.name + " - Value: " + this.getValue() + ", Weight: " + this.getWeight() + ".\n";
+        return this.name + " - Value: " + this.getValue() + ", Weight: " + ((Math.round(this.getWeight() * 100) / 100).toFixed(2)) + ".\n";
     };
     Item.prototype.getId = function () {
         return this.id;
@@ -53,8 +53,6 @@ var Item = /** @class */ (function () {
     Item.prototype.setWeight = function (weight) {
         this.weight = weight;
     };
-    Item.prototype.use = function () { };
-    Item.prototype.polish = function () { };
     Item.reset = function () {
         id = 0;
     };

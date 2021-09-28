@@ -34,7 +34,7 @@ export abstract class Item implements Comparable<Item> {
     }
 
     public toString(){
-        return `${this.getId()}: ${this.name} - Value: ${this.getValue()}, Weight: ${this.getWeight()}.\n`
+        return `${this.name} - Value: ${this.getValue()}, Weight: ${((Math.round(this.getWeight() * 100) / 100).toFixed(2))}.\n`
     }
     public getId(){
         return this.id;
@@ -58,8 +58,7 @@ export abstract class Item implements Comparable<Item> {
         this.weight=weight
     }
 
-    public use(){}
-    public polish(){}
+    abstract use();
 
     public static reset(){
         id=0;

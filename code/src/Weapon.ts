@@ -48,7 +48,7 @@ export abstract class Weapon extends Item {
     public setDamageModifier(damageModifier:number){
         this.damageModifier=damageModifier;
     }
-    public polish(){}
+    abstract polish();
 
     public use(){
         if(this.getDurability()<=0){

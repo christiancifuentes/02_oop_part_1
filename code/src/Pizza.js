@@ -31,6 +31,18 @@ var Pizza = /** @class */ (function (_super) {
         _this.slicesEaten = 0;
         return _this;
     }
+    Pizza.prototype.getSlicesEaten = function () {
+        return this.slicesEaten;
+    };
+    Pizza.prototype.getNumberOfSlices = function () {
+        return this.numberOfSlices;
+    };
+    Pizza.prototype.setSlicesEaten = function (slicesEaten) {
+        this.slicesEaten = slicesEaten;
+    };
+    Pizza.prototype.setNumberOfSlices = function (numberOfSlices) {
+        this.numberOfSlices = numberOfSlices;
+    };
     Pizza.prototype.eat = function () {
         var sickMessage = " You feel sick.";
         var eatMessage = "You eat a slice of the " + this.getName() + ".";
@@ -39,7 +51,7 @@ var Pizza = /** @class */ (function (_super) {
             if (this.slicesEaten >= this.numberOfSlices) {
                 this.setConsumed(true);
             }
-            if (this.spoiled) {
+            if (this.getSpoiled()) {
                 eatMessage += sickMessage;
             }
             return eatMessage;

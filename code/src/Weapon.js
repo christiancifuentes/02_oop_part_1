@@ -60,7 +60,6 @@ var Weapon = /** @class */ (function (_super) {
     Weapon.prototype.setDamageModifier = function (damageModifier) {
         this.damageModifier = damageModifier;
     };
-    Weapon.prototype.polish = function () { };
     Weapon.prototype.use = function () {
         if (this.getDurability() <= 0) {
             return "You can't use the " + this.getName() + ", it is broken.";

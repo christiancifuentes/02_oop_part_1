@@ -21,10 +21,10 @@ var Inventory = /** @class */ (function () {
         }
         else {
             this.items.sort(function (a, b) {
-                if (a.value > b.value) {
+                if (a.getValue() > b.getValue()) {
                     return 1;
                 }
-                if (a.value < b.value) {
+                if (a.getValue() < b.getValue()) {
                     return -1;
                 }
                 return 0;
