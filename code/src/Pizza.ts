@@ -1,9 +1,9 @@
 import {Consumable} from './Consumable'
 export class Pizza extends Consumable{
-    numberOfSlices: number;
-    slicesEaten: number;
+    private numberOfSlices: number;
+    private slicesEaten: number;
 
-    constructor(numberOfSlices: number, spoiled: boolean, value?:number, weight?:number){
+    public constructor(numberOfSlices: number, spoiled: boolean, value?:number, weight?:number){
         if(typeof value != 'undefined' && typeof weight != 'undefined'){
             super("pizza",value,weight,spoiled);
         }else{
@@ -13,7 +13,20 @@ export class Pizza extends Consumable{
         this.slicesEaten=0;
     }
 
-    eat(){
+    public getSlicesEaten(){
+        return this.slicesEaten;
+    }
+    public getNumberOfSlices(){
+        return this.numberOfSlices;
+    }
+    public setSlicesEaten(slicesEaten:number){
+        this.slicesEaten=slicesEaten;
+    }
+    public setNumberOfSlices(numberOfSlices:number){
+        this.numberOfSlices=numberOfSlices;
+    }
+
+    public eat(){
         var sickMessage=` You feel sick.`
         var eatMessage=`You eat a slice of the ${this.getName()}.`;
  
@@ -23,7 +36,7 @@ export class Pizza extends Consumable{
             if(this.slicesEaten>=this.numberOfSlices){
                 this.setConsumed(true);
             }
-            if(this.spoiled){
+            if(this.getSpoiled()){
             eatMessage+=sickMessage;
             }  
             return eatMessage;

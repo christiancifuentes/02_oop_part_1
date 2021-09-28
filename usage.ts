@@ -43,7 +43,6 @@ a.polish();
 console.log(a.use());
 console.log(pizza.use());
 console.log(bow.use());
-console.log(Item.numberOfItems);
 console.log(d.use());
 console.log(d.use());
 

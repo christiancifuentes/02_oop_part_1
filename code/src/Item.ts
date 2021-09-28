@@ -3,13 +3,13 @@ import { Comparable } from './Comparable';
 let id = 0;
 
 export abstract class Item implements Comparable<Item> {
-    static numberOfItems: number;
-    id: number;
-    value: number;
-    name: string;
-    weight: number;
+    private static numberOfItems: number;
+    private id: number;
+    private value: number;
+    private name: string;
+    private weight: number;
 
-    constructor( name:string, value:number, weight:number ){
+    public constructor( name:string, value:number, weight:number ){
         this.name=name;
         this.value=value;
         this.weight=weight;
@@ -33,36 +33,35 @@ export abstract class Item implements Comparable<Item> {
         }
     }
 
-    toString(){
+    public toString(){
         return `${this.getId()}: ${this.name} - Value: ${this.getValue()}, Weight: ${this.getWeight()}.\n`
     }
-
-    getId(){
+    public getId(){
         return this.id;
     }
-    getValue(){
+    public getValue(){
         return this.value;
     }
-    getName(){
+    public getName(){
         return this.name;
     }
-    getWeight(){
+    public getWeight(){
         return this.weight;
     }
-    setValue(value:number){
+    public setValue(value:number){
         this.value=value;
     }
-    setName(name:string){
+    public setName(name:string){
         this.name=name;
     }
-    setWeight(weight:number){
+    public setWeight(weight:number){
         this.weight=weight
     }
 
-    use(){}
-    polish(){}
+    public use(){}
+    public polish(){}
 
-    static reset(){
+    public static reset(){
         id=0;
     }
 }

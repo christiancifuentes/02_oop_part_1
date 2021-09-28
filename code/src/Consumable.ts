@@ -1,31 +1,31 @@
 import { Item } from "./Item";
 export abstract class Consumable extends Item{
-    consumed: boolean;
-    spoiled: boolean;
+    private consumed: boolean;
+    private spoiled: boolean;
 
-    constructor(name:string, value:number, weight:number, spoiled: boolean){
+    public constructor(name:string, value:number, weight:number, spoiled: boolean){
         super(name,value,weight);
         this.spoiled=spoiled;
         this.consumed=false;
     }
 
-    setConsumed(consumed:boolean){
+    public setConsumed(consumed:boolean){
         this.consumed=consumed;
     }
 
-    setSpoiled(spoiled:boolean){
+    public setSpoiled(spoiled:boolean){
         this.spoiled=spoiled;
     }
 
-    getConsumed(){
+    public getConsumed(){
         return this.consumed;
     }
 
-    getSpoiled(){
+    public getSpoiled(){
         return this.spoiled;
     }
 
-    use(){
+    public use(){
         if(!this.consumed&&!this.spoiled){ 
             return this.eat();
         }else{
@@ -34,7 +34,7 @@ export abstract class Consumable extends Item{
 
     }
 
-    eat(){
+    public eat(){
         var sickMessage=``;
         if(this.spoiled){
             sickMessage=`You feel sick.`
@@ -44,15 +44,15 @@ export abstract class Consumable extends Item{
         }
         return `You eat ${this.getName()}. ${sickMessage}`;
     }
-    isConsumed(){
+    public isConsumed(){
         this.consumed=true;
     }
 
-    isSpoiled(){
+    public isSpoiled(){
         this.spoiled=true;
     }
 
-    toString(){
+    public toString(){
         return super.toString();
     }
 }

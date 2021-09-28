@@ -2,10 +2,10 @@ import { Item } from "./Item";
 import { ItemComparator } from "./ItemComparator";
 
 export class Inventory{
-    items: Array<Item>;
+    private items: Array<Item>;
 
-    constructor();
-    constructor(items?: Array<Item>){
+    public constructor();
+    public constructor(items?: Array<Item>){
         if( typeof items != 'undefined') {
             this.items=items;
         }else{
@@ -13,21 +13,21 @@ export class Inventory{
         }
     }
 
-    addItem(item: Item){
+    public addItem(item: Item){
         this.items.push(item);
     }
 
-    sort(comparator?: ItemComparator){
+    public sort(comparator?: ItemComparator){
         if(typeof comparator != 'undefined'){
             this.items.sort(function(a,b){
                 return comparator.compare(a,b);
             });
         }else{
             this.items.sort(function(a,b){
-                if(a.value>b.value){
+                if(a.getValue()>b.getValue()){
                     return 1;
                 }
-                if(a.value<b.value){
+                if(a.getValue()<b.getValue()){
                     return -1
                 }
                 return 0
@@ -35,7 +35,7 @@ export class Inventory{
         }
     }
 
-    toString(){
+    public toString(){
         return this.items.toString();
     }
 
